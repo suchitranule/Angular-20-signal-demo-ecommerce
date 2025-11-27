@@ -1,0 +1,53 @@
+th {
+  text-align: center; /* Aligns header text to the left */
+}
+
+td {
+  text-align: center; /* Aligns data cell text to the center */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: table;    /* IMPORTANT */
+}
+
+
+table tbody {
+  display: table-row-group;
+}
+
+select {
+  text-align: center;
+}
+
+.addToCartBtn {
+    background-color: cornflowerblue;
+    color: white;
+    border: 1 px solid cornflowerblue !important;
+    cursor: pointer;
+    width: 80%;
+    height: 40px;
+}
+
+.itemCounter {
+  background-color: darkblue;
+  color: white;
+  width: auto;
+  height: 35px;
+  line-height: 35px;
+  border: 5px solid darkblue;
+}
+
+.itemCounter > span {
+  cursor: pointer;
+  display: inline-block;
+  width: auto;
+  background-color: white;
+  color: darkblue;
+  padding: 0px 10px;
+}
+
+fa-icon  {
+  cursor: pointer;
+}

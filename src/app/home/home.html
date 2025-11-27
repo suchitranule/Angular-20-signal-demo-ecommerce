@@ -1,0 +1,41 @@
+<div>
+    <table border="1" cellspacing="10" width="100%">
+        <thead> 
+            <tr>
+                <th (click)="sortColumn('title')">Name</th>
+                <th (click)="sortColumn('description')">Description</th>
+                <th (click)="sortColumn('price')">Price</th>
+                <th> Favourite </th>
+                <th>Category &nbsp;&nbsp;
+                    <select (change)="onCategoryChange($event)">
+                        <option ngValue="All">All</option>
+                        <option ngValue="beauty">beauty</option>
+                        <option ngValue="fragrances">fragrances</option>
+                        <option ngValue="furniture">furniture</option>
+                        <option ngValue="groceries">groceries</option>
+                    </select>
+                </th>
+                <th width ="150px" style="padding:15px;">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let product of productService.products();let i=index;trackBy: trackById">
+                <td>{{product.title}}</td>
+                <td [title]="product.description.length> 68 ? product.description :''">{{product.description | truncate}}</td>
+                <td style="padding:0px 15px">Rs.{{product.price}}</td>
+                <td>
+                    <fa-icon *ngIf="!productService.wishListArray().includes(product.id)" (click)="addToWishList('add',product.id)" [icon]="faHeartRegular"></fa-icon>
+                    <fa-icon *ngIf="productService.wishListArray().includes(product.id)" (click)="addToWishList('remove',product.id)" [icon]="faHeartSolid" style="color: red;"></fa-icon>
+                </td>
+                <td>{{product.category}}</td>
+                <td style="padding:15px;"> 
+                    <button *ngIf="!cartService.hideButtons()[product.id]"class="addToCartBtn" (click)="updateCart(product.id,i,'plus')">Add To Cart</button>
+                    <div *ngIf="cartService.hideButtons()[product.id]" class="itemCounter"><span (click)="updateCart(product.id,i,'plus')">+</span>&nbsp;&nbsp;<span>{{cartService.noOfItems()[product.id]}}</span>&nbsp;&nbsp;<span (click)="updateCart(product.id,i,'minus')">-</span></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

@@ -1,0 +1,50 @@
+/* HEADER spans both columns */
+.navClass {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLink {
+    display: flex;
+}
+
+.navLink li {
+    list-style: none;
+}
+
+.nav-left {
+    float: left;
+}
+
+
+.navClass {
+  display: flex;
+  justify-content: space-between; /* left | center | right */
+  align-items: center;
+  padding: 0px 20px;
+  background-color:lightblue;
+}
+
+/* Apply flex to all ULs */
+.navClass ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 150px;
+}
+
+/* Prevent ULs from taking full width */
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto; /* Important */
+}
+
+li a {
+  text-decoration: none;
+  cursor: pointer;
+}

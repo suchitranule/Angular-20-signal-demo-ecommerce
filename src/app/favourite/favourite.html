@@ -1,0 +1,19 @@
+<div>
+    <table border="1" cellspacing="10" width="100%">
+        <thead> 
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let product of wishlistProduct;">
+                <td>{{product.title}}</td>
+                <td [title]="product.description.length> 68 ? product.description :''">{{product.description | truncate}}</td>
+                <td>Rs.{{product.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
